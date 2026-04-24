@@ -1,0 +1,95 @@
+:root {
+    --bg-black: #0a0a0c;
+    --text-main: #ffffff;
+    --text-muted: #9aa0a6;
+    --brand-blue: #0A66C2;
+    --brand-orange: #F56A10;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    /* Cảm giác Premium: Nền đen có quầng sáng tâm tối mờ */
+    background: radial-gradient(circle at center, #1b1b20 0%, var(--bg-black) 100%);
+    overflow-x: hidden;
+    /* 400vh để có không gian cuộn thoải mái (100vh cho chữ, 300vh cho 3D) */
+    height: 400vh; 
+}
+
+#canvas-3d-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    cursor: grab;
+}
+
+#canvas-3d-container:active {
+    cursor: grabbing;
+}
+
+#scroll-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    pointer-events: none; /* Tránh click nhầm vào div rỗng */
+}
+
+.hero-section {
+    height: 100vh; /* Kích thước trọn màn hình đầu tiên */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+    
+    /* Thiết lập sẵn để JS can thiệp Opacity và Transform mượt mà */
+    transition: opacity 0.1s ease-out, transform 0.1s ease-out; 
+    will-change: opacity, transform;
+}
+
+.main-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 8rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    letter-spacing: 4px;
+    
+    /* Gradient xịn xò (Cam đất + Xanh) hợp tông BĐS/Martech */
+    background: linear-gradient(135deg, #FF7B00, #FFB03A, #0055FF, #0A66C2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));
+}
+
+.sub-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #e8eaed;
+    line-height: 1.5;
+    margin-bottom: 30px;
+    max-width: 800px;
+    letter-spacing: 1px;
+}
+
+.desc {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+    max-width: 800px;
+    font-weight: 400;
+}
+
+.scroll-padding {
+    height: 300vh;
+}

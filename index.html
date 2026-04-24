@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AZVIDI - Martech Solutions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+    <script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+        }
+      }
+    </script>
+</head>
+<body>
+    <!-- Nền 3D (cố định) -->
+    <div id="canvas-3d-container"></div>
+    
+    <!-- Lớp nội dung cuộn (Overlay) -->
+    <div id="scroll-content">
+        <section class="hero-section" id="hero-text">
+            <h1 class="main-title">AZVIDI</h1>
+            <h2 class="sub-title">ĐƠN VỊ CUNG CẤP GIẢI PHÁP MARTECH<br>CHUYÊN BIỆT CHO LĨNH VỰC BẤT ĐỘNG SẢN</h2>
+            <p class="desc">Được thành lập và phát triển từ đội ngũ nhân sự nhiều kinh nghiệm trong lĩnh vực BĐS, xuất phát từ kinh nghiệm triển khai thực tế để xây dựng những giải pháp công nghệ chuyên biệt phục vụ cho việc tư vấn và triển khai Digital Marketing tích hợp.</p>
+        </section>
+        
+        <!-- Không gian để cuộn tiếp -->
+        <div class="scroll-padding"></div>
+    </div>
+
+    <script type="module" src="three_engine.js"></script>
+</body>
+</html>
