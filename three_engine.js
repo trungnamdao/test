@@ -147,6 +147,7 @@ function createCircleTexture() {
 
 // ─── GLB LOADER ─────────────────────────────────────────────────────────────
 const loader = new GLTFLoader();
+
 loader.load('3d_logo_typography.glb', (gltf) => {
     const geometries = [];
     let imageCanvas = document.createElement('canvas');
@@ -314,6 +315,8 @@ const scrollInd   = document.getElementById('scroll-indicator');
 const finalScreen = document.getElementById('final-screen');
 const ctaButton   = document.querySelector('.cta-btn');
 const ctaWrapper  = document.querySelector('.btn-wrapper');
+const caseScreen  = document.querySelector('.case-screen');
+const caseButtons = document.querySelectorAll('.case-btn');
 
 if (ctaButton) {
     ctaButton.addEventListener('pointermove', (event) => {
@@ -333,6 +336,23 @@ if (ctaButton) {
         ctaWrapper?.style.setProperty('--my', '50%');
     });
 }
+
+caseButtons.forEach((button) => {
+    button.addEventListener('pointermove', (event) => {
+        const rect = button.getBoundingClientRect();
+        const x = ((event.clientX - rect.left) / rect.width) * 100;
+        const y = ((event.clientY - rect.top) / rect.height) * 100;
+        button.style.setProperty('--btn-x', `${x}%`);
+        button.style.setProperty('--btn-y', `${y}%`);
+        finalScreen?.style.setProperty('--case-glow-x', `${event.clientX}px`);
+        finalScreen?.style.setProperty('--case-glow-y', `${event.clientY}px`);
+    });
+
+    button.addEventListener('pointerleave', () => {
+        button.style.setProperty('--btn-x', '50%');
+        button.style.setProperty('--btn-y', '50%');
+    });
+});
 
 // ─── DOM REFS ────────────────────────────────────────────────────────────────
 const clock = new THREE.Clock();
@@ -384,10 +404,20 @@ function animate() {
 
     // Final screen HTML — fade-in phủ lên canvas
     if (finalScreen) {
-        const finalFade = Math.max(0, Math.min(1, (smoothProgress - 0.87) / 0.13));
+        const finalFade = Math.max(0, Math.min(1, (smoothProgress - 0.72) / 0.12));
+        const caseSlide = Math.max(0, Math.min(1, (smoothProgress - 0.955) / 0.045));
+        const heroExit = Math.max(0, Math.min(1, (smoothProgress - 0.958) / 0.028));
+        const caseFade = Math.max(0, Math.min(1, (smoothProgress - 0.982) / 0.018));
         finalScreen.style.opacity = finalFade;
+        finalScreen.style.setProperty('--case-progress', caseSlide.toFixed(3));
+        finalScreen.style.setProperty('--case-slide', caseSlide.toFixed(3));
+        finalScreen.style.setProperty('--case-fade', caseFade.toFixed(3));
+        finalScreen.style.setProperty('--hero-exit', heroExit.toFixed(3));
         // Chỉ block pointer khi đang hiển thị
         finalScreen.style.pointerEvents = finalFade > 0.05 ? 'auto' : 'none';
+        if (caseScreen) {
+            caseScreen.style.pointerEvents = caseFade > 0.12 ? 'auto' : 'none';
+        }
     }
 
     // Auto-explode
@@ -511,6 +541,7 @@ function animate() {
     }
 
     composer.render();
+
 }
 
 animate();

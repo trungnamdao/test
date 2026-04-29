@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AZVIDI - Martech Solutions</title>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=Space+Grotesk:wght@700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Bruno+Ace&family=Inter:wght@400;500;600;800&family=Space+Grotesk:wght@700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
@@ -46,6 +46,19 @@
         <div class="ring ring-3"></div>
         <div class="ring ring-4"></div>
         <div class="ring ring-5"></div>
+        <div class="ambient-glow ambient-glow-left"></div>
+        <div class="ambient-glow ambient-glow-right"></div>
+        <div class="ambient-glow ambient-glow-bottom"></div>
+
+        <header class="final-nav" aria-label="AZVIDI navigation">
+            <div class="final-brand" aria-label="AZVIDI">
+                <img src="azvdlogogogo.svg" alt="AZVD">
+            </div>
+            <button class="menu-btn" type="button" aria-label="Menu">
+                <span>MENU</span>
+                <i aria-hidden="true"></i>
+            </button>
+        </header>
 
         <!-- BEAM GROUP — Exactly like Hehe.tsx Group() -->
         <div class="beam-group">
@@ -151,10 +164,57 @@
             <img class="final-app-img" src="mockup-1.png" alt="AZVIDI Platform Dashboard">
         </div>
 
+        <section class="case-screen" aria-label="Khách hàng gần đây">
+            <div class="case-copy">
+                <p class="case-kicker">DỰ ÁN ĐÃ TRIỂN KHAI</p>
+                <h2>Khách Hàng<br>Gần Đây</h2>
+                <p>Đội ngũ AZVD đồng hành cùng các doanh nghiệp bất động sản trong branding, marketing automation,
+                    performance campaign và hệ thống tư vấn bán hàng tích hợp.</p>
+            </div>
+
+            <div class="case-stack">
+                <article class="case-card case-card-1">
+                    <div class="case-visual">
+                        <span>Happy One Mori</span>
+                    </div>
+                    <div class="case-info">
+                        <p>01</p>
+                        <h3>Happy One Mori</h3>
+                        <span>Dự án căn hộ tại Bình Dương</span>
+                        <button class="case-btn" type="button">Xem chi tiết</button>
+                    </div>
+                </article>
+
+                <article class="case-card case-card-2">
+                    <div class="case-visual">
+                        <span>Senturia Home Resort</span>
+                    </div>
+                    <div class="case-info">
+                        <p>02</p>
+                        <h3>Senturia Home Resort</h3>
+                        <span>Chiến dịch nhận diện và lead generation</span>
+                        <button class="case-btn" type="button">Xem chi tiết</button>
+                    </div>
+                </article>
+
+                <article class="case-card case-card-3">
+                    <div class="case-visual">
+                        <span>The Sensia</span>
+                    </div>
+                    <div class="case-info">
+                        <p>03</p>
+                        <h3>The Sensia</h3>
+                        <span>Martech funnel cho đội ngũ kinh doanh</span>
+                        <button class="case-btn" type="button">Xem chi tiết</button>
+                    </div>
+                </article>
+            </div>
+        </section>
+
     </div>
 
     <script src="smokey_cursor.js?v=20260429-revert"></script>
-    <script type="module" src="three_engine.js?v=20260428-no-cursor-scroll"></script>
+    <script type="module" src="three_engine.js?v=20260429-case-separated"></script>
 </body>
 
 </html>
